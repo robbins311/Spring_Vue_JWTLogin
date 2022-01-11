@@ -1,4 +1,4 @@
-# practice
+# LoginVue
 
 ## Project setup
 ```
