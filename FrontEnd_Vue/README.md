@@ -1,4 +1,4 @@
-# LoginVue
+# LoginJWTVue
 
 ## Project setup
 ```
