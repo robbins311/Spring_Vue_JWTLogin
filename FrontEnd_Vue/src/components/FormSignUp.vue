@@ -4,8 +4,7 @@
   <div id="id">
     <label>
       <span><i class="fas fa-user" style="width: 17px; height: 15px;" />  Email </span>
-      <input v-model="context.email" type="text" placeholder="아이디(이메일)를 입력해주세요." />
-<!--      <input type="text" placeholder="아이디(이메일)를 입력해주세요." v-model="email">  -->
+      <input v-model="context.email" type="text" placeholder="아이디(이메일)를 입력해주세요." autofocus />
     </label>
   </div>
 <!--  패스워드 입력  -->
@@ -13,7 +12,6 @@
     <label>
       <span><i class="fas fa-unlock" style="width: 17px; height: 15px" /> Password </span>
       <input v-model="context.password" type="password" placeholder="비밀번호를 입력해주세요."/>
-<!--      <input type="password" placeholder="패스워드를 입력해주세요." v-model="password">  -->
     </label>
   </div>
 <!--  회원가입 버튼 -->
@@ -25,6 +23,7 @@
     <i class="fas fa-users" style="width: 17px; height: 15px" />
     <span>  회원이신가요? </span>
     <router-link to="/member/login" style="color:#256fd7">Login</router-link>
+    <router-link to="/" style="display:block; margin-left:-86px; margin-top:10px; margin-bottom:10px;">메인페이지</router-link>
   </div>
 
 </div>
@@ -93,8 +92,8 @@ export default {
     border-radius: 8px;
     margin-left: auto;
     margin-right: auto;
-    width: 500px;
-    height: 300px;
+    width: 520px;
+    height: 370px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -119,8 +118,9 @@ export default {
   #id label input {
     border: 1px solid #e6e6e6;
     border-radius: 5px;
+    font-size: 12.8px;
     width: 90%;
-    height: 30px;
+    height: 40px;
     padding: 5px 8px;
   }
   #pw {
@@ -142,8 +142,9 @@ export default {
   #pw label input {
     border: 1px solid #e6e6e6;
     border-radius: 5px;
+    font-size: 12.8px;
     width: 90%;
-    height: 30px;
+    height: 40px;
     padding: 5px 8px;
   }
   #signUp {

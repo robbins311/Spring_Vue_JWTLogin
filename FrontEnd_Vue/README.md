@@ -8,6 +8,7 @@ yarn install
 ### Compiles and hot-reloads for development
 ```
 yarn serve
+server port - localhost 8081
 ```
 
 ### Compiles and minifies for production

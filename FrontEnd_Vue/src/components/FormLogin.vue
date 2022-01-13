@@ -4,7 +4,7 @@
   <div id="loginId">
     <label>
       <span><i class="fas fa-user" style="width: 17px; height: 15px" />  Email </span>
-      <input v-model="context.email" type="text" placeholder="아이디(이메일)를 입력해주세요." />
+      <input v-model="context.email" type="text" placeholder="아이디(이메일)를 입력해주세요." autofocus />
     </label>
   </div>
   <!--  패스워드 입력  -->
@@ -22,7 +22,7 @@
   <div id="linkSignUp">
     <i class="fas fa-users" style="width: 17px; height: 15px" />
     <span>  처음이신가요? </span>
-    <router-link to="/member/signup" style="color:#256fd7">Sign Up</router-link>
+    <router-link to="/member/signup" style="color:#256fd7">Sign Up Now</router-link>
   </div>
 
 </div>
@@ -87,8 +87,8 @@ export default {
     border-radius: 8px;
     margin-left: auto;
     margin-right: auto;
-    width: 500px;
-    height: 300px;
+    width: 520px;
+    height: 330px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -116,7 +116,8 @@ export default {
     border: 1px solid #e6e6e6;
     border-radius: 5px;
     width: 90%;
-    height: 30px;
+    font-size: 12.8px;
+    height: 40px;
     padding: 5px 8px;
   }
 
@@ -140,7 +141,8 @@ export default {
     border: 1px solid #e6e6e6;
     border-radius: 5px;
     width: 90%;
-    height: 30px;
+    font-size: 12.8px;
+    height: 40px;
     padding: 5px 8px;
   }
 
@@ -161,6 +163,6 @@ export default {
 
   #linkSignUp {
     margin-top: 20px;
-    margin-left: -285px;
+    margin-left: -255px;
   }
 </style>

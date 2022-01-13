@@ -1,7 +1,8 @@
 <template>
   <div id="signupText">
-    <router-link to="/"><i class="fas fa-home"  style="width: 25px; height: 25px; color: #262626" /></router-link>
-    <h2>회원가입</h2>
+    <div id="sf">
+      <h2>회원가입</h2>
+    </div>
     <form-sign-up/>
   </div>
 </template>
@@ -15,5 +16,11 @@ export default {
 </script>
 
 <style scoped>
-
+  #sf {
+    margin-bottom: 30px;
+  }
+  #sf h2 {
+    color: #2c3e50;
+    font-weight: 500;
+  }
 </style>
