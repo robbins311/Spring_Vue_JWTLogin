@@ -1,0 +1,49 @@
+
+        $("#adJoinBtn").click(function(){
+            var data = {
+                email : $("#adEmail").val(),
+                password : $("#adPw").val()
+            }
+            $.ajax({
+                type:"POST",
+                url:"/auth/adminSignup",
+                contentType: "application/json; charset=utf-8",
+                data : JSON.stringify(data),
+                dataType: "json",
+                success: function(result){
+                    alert("회원가입 성공");
+                    console.log(result)
+                },
+                error: function (error){
+                    console.log(JSON.stringify(error));
+                    console.log(data);
+                    alert("이미 가입되어있는 사용자 입니다.");
+                }
+            })
+        })        
+
+
+      $("#admin").on("click", function(){
+            const key02 = JSON.parse(localStorage.getItem("key"));
+            $.ajax({
+                type:"GET",
+                url:"/admin/me",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Content-type", "application/json");
+                    xhr.setRequestHeader("Authorization","Bearer "+ key02.accessToken);
+                },
+                headers: {
+                    'Authorization': "Bearer "+ key02.accessToken
+                },
+                success: function(result){
+                    alert("ADMIN 계정입니다.");
+                    console.log("ADMIN ACCOUNT");
+                },
+                error: function (error){
+                    console.log("ADMIN ONLY");
+                    alert("ADMIN으로 접속하세요");
+                }
+            })
+        })

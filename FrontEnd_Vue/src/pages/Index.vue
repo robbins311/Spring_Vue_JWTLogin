@@ -12,9 +12,7 @@
 
     <router-link to="/member/login" v-if="!$store.getters.accessToken">Login | </router-link>
 
-    <router-link to="/member/me">Me</router-link>
-    |
-    <router-link to="/member/check" @click.native="checkToken">Check</router-link>
+    <router-link to="/member/me" v-if="$store.getters.accessToken" @click.native="checkToken">UploadFiles</router-link>
    
 
   </div>
@@ -22,6 +20,7 @@
 </template>
 
 <script>
+import router from '../router';
 import {store} from "../store/store";
 export default {
   name: "Index",
@@ -39,7 +38,22 @@ export default {
           store.commit('delToken', token)
         },
     checkToken() {
-      alert("클릭됐습니다.");
+      const token = localStorage.getItem('access_token')
+      let config = {
+        headers: {
+          "Authorization": `Bearer ${token}`,
+        }
+      }
+      this.$axios
+      .get('http://localhost:8082/member/me', config)
+      .then(res=>{
+        console.log(res.data);
+      })
+      .catch(error => {
+        alert("로그인 하세요!")
+        router.push('/');
+        console.log(error)
+      })
     },
   }
 }

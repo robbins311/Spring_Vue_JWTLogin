@@ -4,12 +4,14 @@ import Login from "../pages/member/Login";
 import Index from "../pages/Index";
 import Me from "../pages/member/Me";
 import Check from "../pages/member/Check";
+import { store } from "../store/store";
 
 
 // 로그인 인증
 const requireAuth = () => (to, from, next) => {
     console.log('HSTEST:: requireAuth')
-    let token = localStorage.getItem('access_token');
+    let token = store.getters.accessToken;
+    //let token = localStorage.getItem('access_token');
   if(token) {
       return next();
   } else {
@@ -24,7 +26,7 @@ const routes = [
     {path: '/member/login', component: Login},
     // 인증이 필요한 페이지는 decorating
     {path: '/member/me', component: Me, beforeEnter: requireAuth()},
-    {path: '/member/check', component: Check},
+    {path: '/member/check', component: Check, beforeEnter: requireAuth()},
 
 ]
 const options = {routes, mode:'history', base: process.env.BASE_URL}
