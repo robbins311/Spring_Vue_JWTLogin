@@ -3,7 +3,7 @@
     <div>
       <img src="./../assets/remove-bg.png" alt="">
       <h1>Index Page</h1>
-      <button class="logoutBtn" @click="logout" v-if="$store.getters.accessToken" >logout</button>
+      <button class="logoutBtn" @click="logout" v-if="$store.getters.accessToken" >Logout</button>
     </div>
 
     <router-link to="/">Home</router-link>
@@ -62,5 +62,6 @@ export default {
 <style scoped>
   .logoutBtn {
     margin-bottom: 17px;
+    
   }
 </style>

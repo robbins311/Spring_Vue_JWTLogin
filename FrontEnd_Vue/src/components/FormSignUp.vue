@@ -161,6 +161,9 @@ export default {
     height: 38px;
     font-size: 14px;
   }
+  #signUp input:hover {
+    background-color: #207cfc;
+  }
   #linkLogin {
     margin-top: 20px;
     margin-left: -300px;
