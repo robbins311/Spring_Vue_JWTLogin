@@ -1,5 +1,9 @@
 <template>
-  <div>
+  <div class="container" style="width:1000px">
+    <div style="margin-bottom: 50px">
+        <h3>robbins311.com</h3>
+        <h4>upload Files</h4>
+    </div>
     <upload-files/>
   </div>
 </template>

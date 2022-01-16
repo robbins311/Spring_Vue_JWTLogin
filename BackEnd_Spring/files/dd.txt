@@ -1,0 +1,22 @@
+{
+    "grantType": "bearer",
+    "accessToken": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTYzOTAzMzA0MH0.rRwI7BzLNANEDTVnBp_rrNVMijf0VRkOQTRCBCuXMMcqzeFOSjYk60SGN7o7i9vb88JdN2wtrjwhk7Ul1yvReQ",
+    "refreshToken": "eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2Mzk2MzYwNDB9.LnA_5perbXpod_8dsKq5ZCkE8LVRh6I0SrGFtUsbmjVacxGqeFpHB3jdsOcDt92qxNjtyYKaRbAeTA2en9ugtA",
+    "accessTokenExpiresIn": 1639033040688
+}
+
+
+select * from member;
+select * from refresh_token;
+
+$.ajax({
+                        type:"GET",
+                        url:"/auth/hello",
+                        contentType: "application/json",
+                        success: function (result) {
+                            alert(result);
+                        },
+                        error: function (er) {
+                            alert(er);
+                        }
+                    })
