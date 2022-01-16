@@ -1,7 +1,7 @@
 package com.example.loginwithvue.service;
 
 import com.example.loginwithvue.entity.Member;
-import com.example.loginwithvue.repository.MemberRepository;
+import com.example.loginwithvue.message.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

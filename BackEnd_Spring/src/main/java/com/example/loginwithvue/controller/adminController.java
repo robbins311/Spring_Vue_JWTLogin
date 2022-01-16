@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/admin")
-public class adminController {
+public class AdminController {
     private final MemberService memberService;
 
     @GetMapping("/me")

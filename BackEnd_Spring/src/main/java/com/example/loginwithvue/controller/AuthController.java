@@ -15,10 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 
-//회원가입 / 로그인 / 재발급 을 처리하는 API 입니다.
-//SecurityConfig 에서 /auth/** 요청은 전부 허용했기 때문에 토큰 검증 로직을 타지 않습니다.
-//MemberRequestDto 에는 사용자가 로그인 시도한 ID / PW String 이 존재합니다.
-//TokenRequestDto 에는 재발급을 위한 AccessToken / RefreshToken String 이 존재합니다.
+//회원가입 / 로그인 / 재발급 을 처리하는 API
+//MemberRequestDto 에는 사용자가 로그인 시도한 ID / PW String 이 존재.
+//TokenRequestDto 에는 재발급을 위한 AccessToken / RefreshToken String이 존재.
 @Slf4j
 @RestController
 @RequestMapping("/auth")

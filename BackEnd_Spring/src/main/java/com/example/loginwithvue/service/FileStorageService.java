@@ -1,7 +1,7 @@
 package com.example.loginwithvue.service;
 
 import com.example.loginwithvue.entity.FileDB;
-import com.example.loginwithvue.repository.FileDBRepository;
+import com.example.loginwithvue.message.repository.FileDBRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;

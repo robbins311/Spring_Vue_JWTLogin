@@ -16,7 +16,7 @@ import java.io.FileOutputStream;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/*  */
+/* Cors 허용 */
 @CrossOrigin("http://localhost:8081")
 @RestController
 public class FileController {
@@ -40,7 +40,7 @@ public class FileController {
             return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));
         }
     }
-
+    /* 파일 정보 */
     @GetMapping("/files")
     public ResponseEntity<List<ResponseFile>> getListFiles() {
         List<ResponseFile> files = storageService.getAllFiles().map(dbFile -> {
@@ -58,7 +58,7 @@ public class FileController {
         }).collect(Collectors.toList());
         return ResponseEntity.status(HttpStatus.OK).body(files);
     }
-
+    
     @GetMapping("/files/{id}")
     public ResponseEntity<byte[]> getFile(@PathVariable String id) {
         FileDB fileDB = storageService.getFile(id);

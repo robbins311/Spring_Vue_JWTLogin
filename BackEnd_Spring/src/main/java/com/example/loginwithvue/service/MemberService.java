@@ -2,7 +2,7 @@ package com.example.loginwithvue.service;
 
 
 import com.example.loginwithvue.controller.dto.MemberResponseDto;
-import com.example.loginwithvue.repository.MemberRepository;
+import com.example.loginwithvue.message.repository.MemberRepository;
 import com.example.loginwithvue.util.SecurityUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

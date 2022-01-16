@@ -1,4 +1,4 @@
-package com.example.loginwithvue.repository;
+package com.example.loginwithvue.message.repository;
 
 import com.example.loginwithvue.entity.RefreshToken;
 import org.springframework.data.jpa.repository.JpaRepository;

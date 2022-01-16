@@ -16,6 +16,7 @@ public class MemberRequestDto {
 
     private String email;
     private String password;
+    // 일반 회원
     public Member toMember(PasswordEncoder passwordEncoder) {
         return Member.builder()
                 .email(email)
@@ -23,7 +24,7 @@ public class MemberRequestDto {
                 .authority(Authority.ROLE_USER)
                 .build();
     }
-
+    // ADMIN
     public Member toAdminMember(PasswordEncoder passwordEncoder) {
         return Member.builder()
                 .email(email)
