@@ -8,11 +8,11 @@
 
     <router-link to="/">Home</router-link>
     |
-    <router-link to="/member/signup" v-if="!$store.getters.accessToken">SignUp | </router-link>
+    <router-link to="/member/signup" v-if="!$store.getters.accessToken">  SignUp | </router-link>
 
-    <router-link to="/member/login" v-if="!$store.getters.accessToken">Login | </router-link>
+    <router-link to="/member/login" v-if="!$store.getters.accessToken">  Login</router-link>
 
-    <router-link to="/member/me" v-if="$store.getters.accessToken" @click.native="checkToken">UploadFiles</router-link>
+    <router-link to="/member/me" v-if="$store.getters.accessToken" @click.native="checkAuth">UploadFiles</router-link>
    
 
   </div>
@@ -37,7 +37,7 @@ export default {
           alert("로그아웃 되었습니다.")
           store.commit('delToken', token)
         },
-    checkToken() {
+    checkAuth() {
       const token = localStorage.getItem('access_token')
       let config = {
         headers: {
@@ -50,7 +50,7 @@ export default {
         console.log(res.data);
       })
       .catch(error => {
-        alert("로그인 하세요!")
+        alert("인증기간이 만료되었습니다.")
         router.push('/');
         console.log(error)
       })
