@@ -31,6 +31,7 @@
 <script>
 import router from "../router";
 import {store} from "../store/store";
+import http from "../http-common";
 
 export default {
   name: "FormLogin",
@@ -46,31 +47,22 @@ export default {
     onLoginClicked(){
       // 입력받은 파라미터 값 back으로 전송
       const params = { email: this.context.email, password:this.context.password }
-      console.log(params);
       // 이메일 or 패스워드 값이 입력 안됐을시 오류
       if (!params.email || !params.password) {
         alert("이메일이나 패스워드를 입력하세요.");
         return null
       } else {
-        this.$axios
-            .post('http://localhost:8082/auth/login', params, {
-              headers: {
-                'Content-type': 'application/json'
-              }
-            })
+        http
+            .post('http://localhost:8082/auth/login', params)
             .then(function (response){
               window.alert("환영합니다! 로그인 되었습니다.");
               router.push('/');
               // 전달받은 response 값 중 accessToken만 localstorage and store에 저장
               const token = response.data.accessToken;
               localStorage.setItem("access_token", token)
-              console.log(params);
-              console.log(token)
               store.commit('setToken', token);
-
             })
             .catch(function (error){
-
               window.alert("아이디, 비밀번호를 다시 확인해주세요.");
               console.log(error)
             });

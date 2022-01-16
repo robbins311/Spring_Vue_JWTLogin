@@ -31,6 +31,7 @@
 
 <script>
 import router from "../router";
+import http from "../http-common"
 
 export default {
   name: "FormSignUp",
@@ -56,14 +57,8 @@ export default {
      } else {
        console.log(params);
        /* axios를 통해 backend와 통신 */
-       this.$axios
-           .post('http://localhost:8082/auth/signup', params,
-               {
-                 // header값 Json
-                 headers: {
-                   'Content-type': 'application/json'
-                 }
-               })
+       http
+           .post('/auth/signup', params)
            // 회원가입이 성공했을때 alert 메세지와 login페이지로 이동.
            .then(function (response) {
              window.alert("회원가입 되었습니다! 로그인 페이지로 이동합니다.");
