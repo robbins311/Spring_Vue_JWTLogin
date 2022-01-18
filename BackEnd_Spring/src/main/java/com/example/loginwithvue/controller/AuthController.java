@@ -37,7 +37,6 @@ public class AuthController {
 
     @RequestMapping(value = "/login", consumes = MediaType.APPLICATION_JSON_VALUE,method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE ,headers = {"Accept=application/json"})
     public ResponseEntity<TokenDto> login(@RequestBody MemberRequestDto memberRequestDto) {
-        //log.info(">> json type :: tokenDto :: {}", tokenDto);
         return ResponseEntity.ok(authService.login(memberRequestDto));
     }
 

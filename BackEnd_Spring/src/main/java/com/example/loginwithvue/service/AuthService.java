@@ -27,8 +27,7 @@ public class AuthService {
     private final TokenProvider tokenProvider;
     private final RefreshTokenRepository refreshTokenRepository;
 
-    //#회원가입 (signup)
-    //평범하게 유저 정보를 받아서 저장합니다.
+    //회원가입
     @Transactional
     public MemberResponseDto signup(MemberRequestDto memberRequestDto) {
         if (memberRepository.existsByEmail(memberRequestDto.getEmail())) {
@@ -48,18 +47,7 @@ public class AuthService {
         Member member = memberRequestDto.toAdminMember(passwordEncoder);
         return MemberResponseDto.of(memberRepository.save(member));
     }
-    // #로그인 (login)
-    //
-    //Authentication
-    //사용자가 입력한 Login ID, PW 로 인증 정보 객체 UsernamePasswordAuthenticationToken를 생성합니다.
-    //아직 인증이 완료된 객체가 아니며 AuthenticationManager 에서 authenticate 메소드의 파라미터로 넘겨서 검증 후에 Authentication 를 받습니다.
-    //AuthenticationManager
-    //스프링 시큐리티에서 실제로 인증이 이루어지는 곳입니다.
-    //authenticate 메소드 하나만 정의되어 있는 인터페이스며 위 코드에서는 Builder 에서 UserDetails 의 유저 정보가 서로 일치하는지 검사합니다.
-    //그런데 코드상으로는 전혀 구현된게 없는데 어떻게 된 걸까요? 내부적으로 수행되는 검증 과정은 아래의 CustomUserDetailsService 클래스에서 다루겠습니다.
-    //인증이 완료된 authentication 에는 Member ID 가 들어있습니다.
-    //인증 객체를 바탕으로 Access Token + Refresh Token 을 생성합니다.
-    //Refresh Token 은 저장하고, 생성된 토큰 정보를 클라이언트에게 전달합니다.
+    // 로그인
     @Transactional
     public TokenDto login(MemberRequestDto memberRequestDto) {
         // 1. Login ID/PW 를 기반으로 AuthenticationToken 생성
@@ -79,12 +67,7 @@ public class AuthService {
         // 5. Token 발급.
         return tokenDto;
     }
-    // #재발급 (reissue)
-    //Access Token + Refresh Token 을 Request Body 에 받아서 검증합니다.
-    //Refresh Token 의 만료 여부를 먼저 검사합니다.
-    //Access Token 을 복호화하여 유저 정보 (Member ID) 를 가져오고 저장소에 있는 Refresh Token 과 클라이언트가 전달한 Refresh Token 의 일치 여부를 검사합니다.
-    //만약 일치한다면 로그인 했을 때와 동일하게 새로운 토큰을 생성해서 클라이언트에게 전달합니다.
-    //Refresh Token 은 재사용하지 못하게 저장소에서 값을 갱신해줍니다.
+    // 재발급
     @Transactional
     public TokenDto reissue(TokenRequestDto tokenRequestDto) {
         // 1. Refresh Token 검증
