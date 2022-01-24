@@ -30,7 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
-    // h2 database 테스트가 원활하도록 관련 API들은 전부 무시
+
     @Override
     public void configure(WebSecurity web) {
         web.ignoring()
@@ -75,8 +75,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .frameOptions()
                 .sameOrigin()
 
-                // 시큐리티는 기본적으로 세션을 사용
-                // 여기서는 세션을 사용하지 않기 때문에 세션 설정을 Stateless 로 설정
+
+                // 세션을 사용하지 않기 때문에 세션 설정을 Stateless 로 설정
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -88,7 +88,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/view/**").permitAll()
                     .antMatchers("/auth/**").permitAll()
                     .antMatchers("/**").permitAll()
-                // admin API
+                // admin API 허용
                     .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated() // 나머지 API는 전부 인증 필요.
 

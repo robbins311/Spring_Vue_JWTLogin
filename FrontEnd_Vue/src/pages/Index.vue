@@ -10,9 +10,9 @@
     |
     <router-link to="/member/signup" v-if="!$store.getters.accessToken">  SignUp | </router-link>
 
-    <router-link to="/member/login" v-if="!$store.getters.accessToken">  Login</router-link>
+    <router-link to="/member/login" >  Login | </router-link>
 
-    <router-link to="/member/me" v-if="$store.getters.accessToken" @click.native="checkAuth">UploadFiles</router-link>
+    <router-link to="/member/me"  @click.native="checkAuth">UploadFiles</router-link>
    
 
   </div>
