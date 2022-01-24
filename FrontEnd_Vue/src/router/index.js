@@ -25,7 +25,6 @@ const routes = [
     {path: '/member/login', component: Login},
     // 인증이 필요한 페이지는 decorating
     {path: '/member/me', component: Me, beforeEnter: requireAuth()},
-    //{path: '/member/check', component: Check, beforeEnter: requireAuth()},
 
 ]
 const options = {routes, mode:'history', base: process.env.BASE_URL}
